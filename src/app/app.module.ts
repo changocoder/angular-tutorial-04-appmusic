@@ -7,11 +7,15 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { RouterModule } from '@angular/router';
-import { ROUTES } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+
+
+// Services
+import { SpotifyService } from "../app/services/spotify.service";
 
 
 // Routes
-
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,10 @@ import { ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot( ROUTES, { useHash: true } )
   ],
-  providers: [],
+  providers: [ SpotifyService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
