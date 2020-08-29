@@ -20,6 +20,7 @@ import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.compone
 
 // pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     SearchComponent,
     ArtistComponent,
     TarjetasComponent,
-    NoimagePipe
+    NoimagePipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -9,14 +9,17 @@ import { Observable } from 'rxjs';
 export class SearchComponent {
 
   artists: any[] = [];
+  loading: boolean;
 
   constructor( private spotifyService: SpotifyService ) { }
 
   searchArtist(termino: string): void{
+    this.loading = true;
     this.spotifyService.searchArtist(termino)
         .subscribe( (data: any) => {
           console.log(data);
           this.artists = data;
+          this.loading = false;
         });
 
   }
