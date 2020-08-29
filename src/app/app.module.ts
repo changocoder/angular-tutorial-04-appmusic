@@ -11,11 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 // Services
-import { SpotifyService } from "../app/services/spotify.service";
+import { SpotifyService } from '../app/services/spotify.service';
 
 
 // Routes
 import { ROUTES } from './app.routes';
+import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
+
+// pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { ROUTES } from './app.routes';
     HomeComponent,
     NavbarComponent,
     SearchComponent,
-    ArtistComponent
+    ArtistComponent,
+    TarjetasComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
