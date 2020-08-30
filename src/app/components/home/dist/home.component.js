@@ -14,6 +14,7 @@ var HomeComponent = /** @class */ (function () {
         this.spotify = spotify;
         this.newReleases = [];
         this.loading = true;
+        this.loading = true;
         this.spotify.getNewReleases()
             .subscribe(function (data) {
             console.log(data);

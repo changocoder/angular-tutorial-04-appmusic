@@ -9,7 +9,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class HomeComponent {
 
   newReleases: any[] = [];
-  loading: boolean;
+  loading = true;
 
   constructor(private spotify: SpotifyService ) {
     this.loading = true;

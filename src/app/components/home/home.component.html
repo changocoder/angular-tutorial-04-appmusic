@@ -1,4 +1,4 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<app-tarjetas [newReleases]="newReleases">
+<app-tarjetas [newReleases]="newReleases" *ngIf="!loading">
 </app-tarjetas>

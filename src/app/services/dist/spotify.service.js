@@ -18,7 +18,7 @@ var SpotifyService = /** @class */ (function () {
     SpotifyService.prototype.getQuery = function (query) {
         var url = "https://api.spotify.com/v1/" + query;
         var headers = new http_1.HttpHeaders({
-            Authorization: 'Bearer BQC7cRG-3hWNFNcpF4K8b0p3LVEnjPekWuYId7FWoAb_wbm07qMLjbiw-ppWXIA07h7le0vsv2HtrCo5uP8'
+            Authorization: 'Bearer BQBWP1XSxF4huJPJKZKE0k51ypSO9ryrSySSRPsMGvRCpdV9vXuggZsFZAM35_9_IwOEJZW8ASRTIWXpcFw'
         });
         return this.http.get(url, { headers: headers });
     };
@@ -29,6 +29,9 @@ var SpotifyService = /** @class */ (function () {
     SpotifyService.prototype.searchArtist = function (query) {
         return this.getQuery("search?q=" + query + "&type=artist&limit=15")
             .pipe(operators_1.map(function (data) { return data['artists'].items; }));
+    };
+    SpotifyService.prototype.getArtist = function (id) {
+        return this.getQuery("artists/" + id);
     };
     SpotifyService = __decorate([
         core_1.Injectable({
