@@ -11,18 +11,20 @@ import { Observable } from 'rxjs';
 export class ArtistComponent {
 
   artist: any = {};
+  topTracks: [] = [];
   loadingArtist = true;
 
   constructor(private router: ActivatedRoute, private spotifyService: SpotifyService) {
     this.router.params.subscribe( params => {
-      this.getArtist( params['id'] );
+      this.getArtist( params.id );
+      this.getTopTracksArtist( params.id );
     });
 
   }
 
   getArtist( id: string ): void{
     this.loadingArtist = true;
-    this.spotifyService.getArtist(id)
+    this.spotifyService.getArtist( id )
               .subscribe( data => {
                   this.artist = data;
                   console.log(this.artist);
@@ -30,4 +32,11 @@ export class ArtistComponent {
               });
   }
 
+  getTopTracksArtist( id: string): void{
+    this.spotifyService.getTopTracksArtist( id )
+        .subscribe( tracks => {
+          this.topTracks = tracks;
+          console.log(this.topTracks);
+        });
+  }
 }

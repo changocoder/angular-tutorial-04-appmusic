@@ -20,7 +20,11 @@ import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.compone
 
 // pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+
+// Shared Content
 import { LoadingComponent } from './components/shared/loading/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ArtistComponent,
     TarjetasComponent,
     NoimagePipe,
+    DomseguroPipe,
     LoadingComponent
   ],
   imports: [

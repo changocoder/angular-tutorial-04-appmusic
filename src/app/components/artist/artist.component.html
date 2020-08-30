@@ -9,9 +9,36 @@
             <a [href]="artist.external_urls.spotify" target="_blank" rel="noopener noreferrer">Ir a la página del Artista</a>
         </p>
     </div>
+    
     <div class="col-4 text-right">
         <button type="button" class="btn btn-outline-danger" routerLink="/home">
             Regresar al HOME
         </button>
+    </div>
+</div>
+
+<div class="row m-5" *ngIf="!loadingArtist">
+    <div class="col">
+        <table class="table text-white">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Album</th>
+                    <th>Cancion</th>
+                    <th>Fecha de Lanzamiento</th>
+                    <th>Vista Previa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <td scope="row"> <a [href]="track.album.external_urls.spotify" target="_blank"><img [src]="track.album.images | noimage" class="img-thumb rounded-circle puntero" [alt]="track.album.name"></a></td>
+                    <td>{{ track.album.name }}</td>
+                    <td>{{ track.name }}</td>
+                    <td>{{ track.album.release_date | date: 'MM - yyyy'}}</td>
+                    <!-- <td><audio [src]="track.preview_url" controls></audio></td> -->
+                    <td> <iframe [src]="track.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
