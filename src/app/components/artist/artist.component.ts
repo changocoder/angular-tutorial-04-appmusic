@@ -13,6 +13,7 @@ export class ArtistComponent {
   artist: any = {};
   topTracks: [] = [];
   loadingArtist = true;
+  error: boolean;
 
   constructor(private router: ActivatedRoute, private spotifyService: SpotifyService) {
     this.router.params.subscribe( params => {
@@ -29,6 +30,8 @@ export class ArtistComponent {
                   this.artist = data;
                   console.log(this.artist);
                   this.loadingArtist = false;
+              }, ( errorService ) => {
+                  console.error( errorService );
               });
   }
 
